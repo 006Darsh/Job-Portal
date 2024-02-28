@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const CompanyProfile = require("./Company");
+const ApplicantProfile = require("./Applicant");
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -20,7 +22,13 @@ const userSchema = new mongoose.Schema({
     enum: ["Company", "Applicant"],
     required: true,
   },
+  profile: {
+    type: mongoose.Schema.Types.ObjectId,
+    refPath: "role",
+  },
 });
 
 const User = mongoose.model("User", userSchema);
+User.discriminator("Company", CompanyProfile);
+User.discriminator("Applicant", ApplicantProfile);
 module.exports = User;

@@ -145,8 +145,8 @@ Admin Panel:
 	Access controls and permissions for different admin roles
 
 
-
-
+//suggested features
+-->add reminders/save in the google calender for the job interview or job exams
 
 
 

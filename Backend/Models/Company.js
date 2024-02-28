@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
 const companyProfileSchema = new mongoose.Schema({
-  username: {
-    type: String,
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
-    unique: true,
   },
+
   companyName: {
     type: String,
     required: true,
@@ -35,5 +36,5 @@ const companyProfileSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const Company = mongoose.model("Company", companyProfileSchema);
-module.exports = Company;
+const CompanyProfile = mongoose.model("Company", companyProfileSchema);
+module.exports = CompanyProfile;
