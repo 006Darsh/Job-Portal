@@ -5,7 +5,7 @@ const genToken = (payload) => {
   const token = jwt.sign(payload, JWT_SEC, {
     expiresIn: "3d",
   });
-    return jwt;
+    return token;
 };
 
 module.exports = genToken;

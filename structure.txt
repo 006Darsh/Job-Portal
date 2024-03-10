@@ -4,7 +4,7 @@
    - Quick search bar for job seekers to find jobs.
    - Featured job listings and companies.
 
-2. **User Authentication:**
+2. **User Authentication:**                                                                                            //done
    - Sign up and login options for job seekers and companies.
    - Secure authentication process with email verification and password hashing.
 

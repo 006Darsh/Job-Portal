@@ -1,4 +1,6 @@
 const speakeasy = require("speakeasy");
+const sendMail = require("./mailService");
+const otpTemplate = require("./mails/Templates/mailOtp");
 
 exports.sendOTP = async (email) => {
   const otp = speakeasy.totp({
@@ -7,16 +9,16 @@ exports.sendOTP = async (email) => {
   });
   try {
     const mailRes = await sendMail(
-      email,
-      "OTP verification",
-      "Your One-time password is: " + otp
+      (to = email),
+      (subject = "OTP verification"),
+      (html = otpTemplate(otp))
     );
     console.log("Email response:", mailRes);
     return mailRes;
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
     throw error;
-    }
+  }
 };
 
 exports.verifyOTP = (email, otp) => {
