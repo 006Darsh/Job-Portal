@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 mongoose
   .connect(URL)
   .then(() => {
-    console.log("Cconnected to the DB......");
+    console.log("Connected to the DB......");
   })
   .catch((error) => {
     console.error("Error in Connection with DB:" + error);

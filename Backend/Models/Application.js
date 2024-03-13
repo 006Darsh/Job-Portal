@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const applicationSchema = new mongoose.Schema({
   job_id: {
@@ -11,9 +11,8 @@ const applicationSchema = new mongoose.Schema({
     ref: "ApplicantProfile",
     required: true,
   },
-  coverLetter: {
+  coverletter: {
     type: String,
-    required: true,
   },
   resume: {
     type: String,
@@ -30,5 +29,5 @@ const applicationSchema = new mongoose.Schema({
   },
 });
 
-const Application = mongoose.model('Application', applicationSchema);
+const Application = mongoose.model("Application", applicationSchema);
 module.exports = Application;

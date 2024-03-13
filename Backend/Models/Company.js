@@ -11,7 +11,7 @@ const companyProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  company_email: {
     type: String,
     required: true,
     unique: true,

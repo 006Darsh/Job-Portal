@@ -4,7 +4,9 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    index: true,
     unique: true,
+    sparse: true,
   },
   email: {
     type: String,
@@ -22,6 +24,15 @@ const userSchema = new mongoose.Schema({
   },
   profile: {
     type: mongoose.Schema.Types.ObjectId,
+  },
+  resetToken: {
+    type: String,
+  },
+  resetTokenExpiration: {
+    type: Number,
+  },
+  resetTokenUsed: {
+    type: Boolean,
   },
 });
 

@@ -6,7 +6,6 @@ const { verifyOTP, sendOTP } = require("../Services/otpService");
 exports.UserSignUp = async (req, res) => {
   try {
     const { username, email, password, cfmpassword, role, otp } = req.body;
-
     const exist = await User.findOne({
       $or: [{ username: username }, { email: email }],
     });
@@ -40,6 +39,7 @@ exports.UserSignUp = async (req, res) => {
         email: newUser.email,
         password: newUser.password,
         role: newUser.role,
+        type: newUser.role,
       };
 
       const authToken = genToken(payload);
@@ -51,6 +51,7 @@ exports.UserSignUp = async (req, res) => {
         username: newUser.username,
         email: newUser.email,
         role: newUser.role,
+        type: newUser.role,
       });
     } else res.status(400).send({ success: false, message: "Wrong OTP" });
   } catch (error) {
@@ -80,6 +81,7 @@ exports.UserLogin = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
+        type: user.role,
       };
       const authToken = genToken(payload);
       res.status(200).send({
@@ -89,6 +91,7 @@ exports.UserLogin = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
+        type: user.role,
       });
     } else {
       return res.status(401).send({

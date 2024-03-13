@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const jobSchema = new mongoose.Schema({
   company_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "CompanyProfile",
-    required: true,
+    ref: "Company",
   },
   title: {
     type: String,
@@ -15,11 +14,11 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   requirements: {
-    type: [String], 
+    type: [String],
     default: [],
   },
   responsibilities: {
-    type: [String], 
+    type: [String],
     default: [],
   },
   employmentType: {
@@ -48,7 +47,7 @@ const jobSchema = new mongoose.Schema({
   applications: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Application", 
+      ref: "Application",
     },
   ],
 });
